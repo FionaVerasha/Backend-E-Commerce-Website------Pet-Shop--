@@ -13,12 +13,12 @@
 
             <div class="flex flex-col lg:flex-row gap-8 items-start">
                 <!-- Product Gallery -->
-                <div class="lg:w-[74%]">
+                <div class="lg:w-1/2 w-full">
                     <div
                         class="relative group bg-green-50/50 rounded-[2.5rem] border border-green-100 p-0 overflow-hidden shadow-sm">
                         <div class="absolute inset-0 bg-white/50 backdrop-blur-3xl -z-10"></div>
                         <div
-                            class="h-[600px] md:h-[800px] lg:h-[880px] flex items-center justify-center p-0 transition-transform duration-700">
+                            class="h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center p-0 transition-transform duration-700">
                             @if($product->image)
                                 <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
                                     class="w-full h-full object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-700">
@@ -40,14 +40,14 @@
                 </div>
 
                 <!-- Product Content -->
-                <div class="lg:w-[26%] flex flex-col pt-4">
+                <div class="lg:w-1/2 w-full flex flex-col pt-4">
                     <div class="mb-4">
                         <span class="text-green-600 font-black text-xs uppercase tracking-[0.3em]">Premium
                             Collection</span>
                     </div>
 
                     <h1
-                        class="text-5xl md:text-6xl font-black text-gray-900 leading-tight mb-6 uppercase tracking-tight">
+                        class="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-6 uppercase tracking-tight">
                         {{ $product['name'] }}
                     </h1>
 
@@ -84,7 +84,7 @@
                         <input type="hidden" name="image" value="{{ $product->image ? asset($product->image) : '' }}">
 
                         <div
-                            class="bg-green-50/50 rounded-3xl p-8 border border-green-100 flex flex-col sm:flex-row items-center gap-8 mb-10">
+                            class="bg-green-50/50 rounded-3xl p-6 border border-green-100 flex flex-wrap items-end gap-6 mb-10">
                             <div class="flex flex-col gap-3">
                                 <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Select
                                     Quantity</span>
@@ -110,9 +110,9 @@
                                 </div>
                             </div>
 
-                            <div class="flex-grow w-full">
+                            <div class="flex-grow min-w-[200px]">
                                 <button type="submit"
-                                    class="w-full bg-brand hover:bg-brand-dark text-white font-black py-5 rounded-2xl shadow-2xl hover:shadow-brand/20 transition-all duration-300 active:scale-95 text-base uppercase tracking-[0.15em] flex items-center justify-center gap-4 group">
+                                    class="w-full bg-brand hover:bg-brand-dark text-white font-black py-4 rounded-2xl shadow-2xl hover:shadow-brand/20 transition-all duration-300 active:scale-95 text-base uppercase tracking-[0.15em] flex items-center justify-center gap-4 group">
                                     <svg class="w-6 h-6 transition-transform duration-300 group-hover:-translate-y-1"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
