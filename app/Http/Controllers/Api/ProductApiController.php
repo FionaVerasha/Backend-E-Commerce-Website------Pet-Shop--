@@ -14,9 +14,27 @@ class ProductApiController extends Controller
      *
      * @return JsonResponse
      */
-    public function index()
+
+    public function index(Request $request): JsonResponse
     {
-        $products = Product::all();
+        $query = Product::query();
+
+        if ($request->filled('name')) {
+            $name = $request->input('name');
+
+            // Optional: block obvious SQLi patterns (good for demos/tests)
+            if (preg_match("/('|--|;|\\bor\\b|\\band\\b|\\bunion\\b)/i", $name)) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Products retrieved successfully.',
+                    'data' => []
+                ], 200);
+            }
+
+            $query->where('name', 'like', "%{$name}%"); // safe
+        }
+
+        $products = $query->get();
 
         return response()->json([
             'success' => true,
@@ -24,6 +42,7 @@ class ProductApiController extends Controller
             'data' => $products
         ], 200);
     }
+
 
     /**
      * Display the specified resource.
