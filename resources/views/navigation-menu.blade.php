@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
 
-                @if(Auth::check() && (trim(strtolower(Auth::user()->name)) === 'fiona verasha' || str_contains(strtolower(Auth::user()->email), 'fionaverasha')))
+                @if(Auth::check() && (trim(strtolower(Auth::user()->name)) === 'admin' || Auth::user()->is_admin))
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -184,7 +184,7 @@
                 {{ __('Home') }}
             </x-responsive-nav-link>
         </div>
-        @if(trim(strtolower(Auth::user()->name)) === 'fiona verasha' || str_contains(strtolower(Auth::user()->email), 'fionaverasha'))
+        @if(Auth::check() && (trim(strtolower(Auth::user()->name)) === 'admin' || Auth::user()->is_admin))
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}

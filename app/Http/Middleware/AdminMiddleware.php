@@ -18,7 +18,7 @@ class AdminMiddleware
     {
         if (auth()->check()) {
             $user = auth()->user();
-            if (trim(strtolower($user->name)) === 'fiona verasha' || str_contains(strtolower($user->email), 'fionaverasha')) {
+            if (trim(strtolower($user->name)) === 'admin' || $user->is_admin) {
                 return $next($request);
             }
         }

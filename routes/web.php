@@ -31,7 +31,19 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('admin');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard')
+        ->middleware('admin');
+
+    // Admin Product Management
+    Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/products', [\App\Http\Controllers\AdminProductController::class, 'index'])->name('products.index');
+        Route::get('/products/create', [\App\Http\Controllers\AdminProductController::class, 'create'])->name('products.create');
+        Route::post('/products', [\App\Http\Controllers\AdminProductController::class, 'store'])->name('products.store');
+        Route::get('/products/{product}/edit', [\App\Http\Controllers\AdminProductController::class, 'edit'])->name('products.edit');
+        Route::put('/products/{product}', [\App\Http\Controllers\AdminProductController::class, 'update'])->name('products.update');
+        Route::delete('/products/{product}', [\App\Http\Controllers\AdminProductController::class, 'destroy'])->name('products.destroy');
+    });
 
     Route::get('/shop', [ProductController::class, 'index'])->name('shop');
     Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');

@@ -395,7 +395,7 @@
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
-                    @if(trim(strtolower(Auth::user()->name)) === 'fiona verasha' || str_contains(strtolower(Auth::user()->email), 'fionaverasha'))
+                    @if(trim(strtolower(Auth::user()->name)) === 'admin' || Auth::user()->is_admin)
                         <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
                     @endif
                 @else

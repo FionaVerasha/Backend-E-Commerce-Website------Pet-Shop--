@@ -20,10 +20,10 @@
                         class="px-6 py-3 bg-white border border-gray-200 text-gray-700 font-black rounded-xl text-xs uppercase tracking-widest hover:bg-gray-50 transition-all shadow-sm">
                         Download Report
                     </button>
-                    <button
-                        class="px-6 py-3 bg-green-600 text-white font-black rounded-xl text-xs uppercase tracking-widest hover:bg-green-700 transition-all shadow-lg shadow-green-200">
+                    <a href="{{ route('admin.products.create') }}"
+                        class="px-6 py-3 bg-green-600 text-white font-black rounded-xl text-xs uppercase tracking-widest hover:bg-green-700 transition-all shadow-lg shadow-green-200 no-underline inline-block">
                         + Add New Product
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -149,7 +149,8 @@
                                                             {{ $order->user ? $order->user->name : (($order->address['first_name'] ?? 'Guest') . ' ' . ($order->address['last_name'] ?? '')) }}
                                                         </p>
                                                         <p class="text-[10px] font-bold text-gray-400">
-                                                            {{ $order->user ? 'Member' : 'Guest Customer' }}</p>
+                                                            {{ $order->user ? 'Member' : 'Guest Customer' }}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -256,7 +257,8 @@
                                         <div>
                                             <p class="text-xs font-black text-gray-900">{{ $alert['name'] }}</p>
                                             <p class="text-[10px] font-bold text-red-500 uppercase tracking-tighter">
-                                                {{ $alert['stock'] }} units left</p>
+                                                {{ $alert['stock'] }} units left
+                                            </p>
                                         </div>
                                     </div>
                                     <button
@@ -270,22 +272,23 @@
                                 </div>
                             @endforeach
                         </div>
-                        <button
-                            class="w-full mt-6 py-4 border-2 border-dashed border-gray-100 rounded-2xl text-[10px] font-black text-gray-400 uppercase tracking-widest hover:border-green-200 hover:text-green-600 transition-all">
+                        <a href="{{ route('admin.products.index') }}"
+                            class="w-full mt-6 py-4 border-2 border-dashed border-gray-100 rounded-2xl text-[10px] font-black text-gray-400 uppercase tracking-widest hover:border-green-200 hover:text-green-600 transition-all text-center inline-block no-underline">
                             View Full Inventory
-                        </button>
+                        </a>
                     </div>
 
                     <!-- Quick Admin Actions -->
                     <div class="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8">
                         <h2 class="text-lg font-black text-gray-900 uppercase tracking-tight mb-8">Admin Actions</h2>
                         <div class="grid grid-cols-2 gap-3">
-                            <button
-                                class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:bg-green-600 hover:text-white transition-all text-center group">
-                                <span class="block text-xs font-black uppercase tracking-tight">Products</span>
+                            <a href="{{ route('admin.products.index') }}"
+                                class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:bg-green-600 hover:text-white transition-all text-center group no-underline">
+                                <span
+                                    class="block text-xs font-black uppercase tracking-tight text-gray-900 group-hover:text-white">Products</span>
                                 <span
                                     class="text-[10px] font-bold text-gray-400 group-hover:text-white/70">Manage</span>
-                            </button>
+                            </a>
                             <button
                                 class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:bg-green-600 hover:text-white transition-all text-center group">
                                 <span class="block text-xs font-black uppercase tracking-tight">Orders</span>

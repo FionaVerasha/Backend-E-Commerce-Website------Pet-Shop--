@@ -8,26 +8,34 @@
                 <div class="relative flex items-center justify-between">
                     <!-- Progress Line Background -->
                     <div class="absolute inset-x-0 top-4 h-0.5 bg-gray-200 -translate-y-1/2"></div>
-                    
+
                     <!-- Active Progress Line -->
-                    <div class="absolute inset-x-0 top-4 h-0.5 bg-orange-500 -translate-y-1/2 transition-all duration-500" style="width: 0%;"></div>
+                    <div class="absolute inset-x-0 top-4 h-0.5 bg-orange-500 -translate-y-1/2 transition-all duration-500"
+                        style="width: 0%;"></div>
 
                     <!-- Step 1 -->
                     <div class="relative flex flex-col items-center">
-                        <div class="w-8 h-8 rounded-full bg-orange-500 z-10 shadow-md border-4 border-white ring-1 ring-orange-500 animate-pulse-slow"></div>
-                        <span class="mt-4 text-[10px] font-black text-gray-900 uppercase tracking-widest text-center whitespace-nowrap">Review Order</span>
+                        <div
+                            class="w-8 h-8 rounded-full bg-orange-500 z-10 shadow-md border-4 border-white ring-1 ring-orange-500 animate-pulse-slow">
+                        </div>
+                        <span
+                            class="mt-4 text-[10px] font-black text-gray-900 uppercase tracking-widest text-center whitespace-nowrap">Review
+                            Order</span>
                     </div>
 
                     <!-- Step 2 -->
                     <div class="relative flex flex-col items-center">
                         <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-200 z-10 shadow-sm"></div>
-                        <span class="mt-4 text-[10px] font-black text-gray-300 uppercase tracking-widest text-center whitespace-nowrap">Address</span>
+                        <span
+                            class="mt-4 text-[10px] font-black text-gray-300 uppercase tracking-widest text-center whitespace-nowrap">Address</span>
                     </div>
 
                     <!-- Step 3 -->
                     <div class="relative flex flex-col items-center">
                         <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-200 z-10 shadow-sm"></div>
-                        <span class="mt-4 text-[10px] font-black text-gray-300 uppercase tracking-widest text-center whitespace-nowrap">Confirm Order</span>
+                        <span
+                            class="mt-4 text-[10px] font-black text-gray-300 uppercase tracking-widest text-center whitespace-nowrap">Confirm
+                            Order</span>
                     </div>
                 </div>
             </div>
@@ -128,12 +136,8 @@
                                                         @method('DELETE')
                                                         <input type="hidden" name="id" value="{{ $id }}">
                                                         <button type="submit"
-                                                            class="text-gray-300 hover:text-red-500 transition-colors">
-                                                            <svg class="w-5 h-5" fill="none" stroke="currentColor"
-                                                                viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                            </svg>
+                                                            class="px-5 py-2.5 bg-red-50 text-[10px] font-black text-red-600 rounded-xl uppercase tracking-widest hover:bg-red-600 hover:text-white transition-all shadow-sm">
+                                                            Delete
                                                         </button>
                                                     </form>
                                                 </td>
@@ -244,6 +248,6 @@
                         location.reload();
                     }
                 });
-    }
+        }
     </script>
 </x-guest-store-layout>
