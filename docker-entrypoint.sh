@@ -1,25 +1,21 @@
 #!/bin/bash
 
-# Ensure storage and cache directories are writable
+echo "Setting permissions..."
 chmod -R 775 storage bootstrap/cache
 
-# Create symbolic link for storage if it doesn't exist
-php artisan storage:link --force
+echo "Creating storage link..."
+php artisan storage:link || true
 
-# Run migrations (crucial for students to show DB connection)
 echo "Running migrations..."
-php artisan migrate --force
+php artisan migrate --force || true
 
-# Seed products
-echo "Seeding products..."
-php artisan db:seed --force
+echo "Seeding database..."
+php artisan db:seed --force || true
 
-# Caching for production
-echo "Optimizing Laravel for production..."
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+echo "Caching Laravel config..."
+php artisan config:cache || true
+php artisan route:cache || true
+php artisan view:cache || true
 
-# Start Apache in the foreground
 echo "Starting Apache..."
 apache2-foreground
