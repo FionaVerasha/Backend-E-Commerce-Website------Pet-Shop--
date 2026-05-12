@@ -1,0 +1,1 @@
+<x-whisker-logo {{ $attributes }} />
